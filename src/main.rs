@@ -1,18 +1,20 @@
 use macroquad::input::KeyCode;
 use macroquad::rand::gen_range;
 use macroquad::rand::ChooseRandom;
-use macroquad::prelude::draw_text;
-use macroquad::prelude::clear_background;
-use macroquad::prelude::get_frame_time;
-use macroquad::prelude::screen_width;
-use macroquad::prelude::screen_height;
-use macroquad::prelude::is_key_pressed;
-use macroquad::prelude::get_last_key_pressed;
-use macroquad::prelude::next_frame;
-use macroquad::prelude::WHITE;
-use macroquad::prelude::GREEN;
-use macroquad::prelude::BLACK;
-use macroquad::prelude::YELLOW;
+use macroquad::prelude::{
+    draw_text,
+    clear_background,
+    get_frame_time,
+    screen_width,
+    screen_height,
+    is_key_pressed,
+    get_last_key_pressed,
+    next_frame,
+    WHITE,
+    GREEN,
+    BLACK,
+    YELLOW
+};
 
 struct Word {
     text: String,
