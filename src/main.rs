@@ -39,14 +39,18 @@ impl Word {
 
 #[macroquad::main("Typing Game")]
 async fn main() {
-    let word_list = vec![
-        "rust", "macroquad", "async", "cargo", "borrow", "trait", "crates", "thread",
-    ];
+    //let word_list = vec![
+    //    "rust", "macroquad", "async", "cargo", "borrow", "trait", "crates", "thread",
+    //];
 
     let mut active_words: Vec<Word> = Vec::new();
     let mut timer = 0.0;
     let mut input = String::new();
     let mut score = 0;
+
+    // Read file
+    let word_list = std::fs::read_to_string("arch/english-words-master/words.txt").unwrap();
+    let word: Vec<&str> = word_list.lines().collect();
 
     loop {
         clear_background(BLACK);
@@ -57,7 +61,7 @@ async fn main() {
         // Spawna nova palavra a cada 2 segundos
         if timer >= 2.0 {
             timer = 0.0;
-            let word = word_list.choose().unwrap().to_string();
+            let word = word.choose().unwrap().to_string();
             active_words.push(Word {
                 text: word,
                 x: screen_width(),
